@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+=====================================================================
+=== Copyright (c) 1988-2019 $organization$
+===
+=== This software is provided by the author and contributors ``as is'' 
+=== and any express or implied warranties, including, but not limited to, 
+=== the implied warranties of merchantability and fitness for a particular 
+=== purpose are disclaimed. In no event shall the author or contributors 
+=== be liable for any direct, indirect, incidental, special, exemplary, 
+=== or consequential damages (including, but not limited to, procurement 
+=== of substitute goods or services; loss of use, data, or profits; or 
+=== business interruption) however caused and on any theory of liability, 
+=== whether in contract, strict liability, or tort (including negligence 
+=== or otherwise) arising in any way out of the use of this software, 
+=== even if advised of the possibility of such damage.
+===
+===   File: Medusade-create-application-home-html.html
+===
+=== Author: $author$
+===   Date: 12/9/2019
+=====================================================================
+-->
+<html>
+    <!--
+    =====================================================================
+    === head
+    =====================================================================
+    -->
+    <head>
+        <!--
+        =====================================================================
+        === title
+        =====================================================================
+        -->
+        <title>Medusade - Create Application Home</title>
+    
+        <!--
+        =====================================================================
+        === style
+        =====================================================================
+        -->
+        <link rel="stylesheet" type="text/css" href="../css/Medusade.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/Medusade-header.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/Medusade-dropdown.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/Medusade-menubar.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/Medusade-body-logo.css"></link>
+        <style type="text/css">
+        </style>
+    
+        <!--
+        =====================================================================
+        === script
+        =====================================================================
+        -->
+        <script type="text/javascript" src="../js/Medusade.js"></script>
+        <script type="text/javascript">
+            onLocationInit('Medusade.html','Medusade.html');
+        </script>
+    </head>
+    <!--
+    =====================================================================
+    === body
+    =====================================================================
+    -->
+    <body class="body">
+
+        <!--
+        =====================================================================
+        === logo
+        =====================================================================
+        -->
+        <div id="includeLogo" include="Medusade-home-logo.html">
+            <script>includeHTML('includeLogo');</script>
+        </div>
+        <!--
+        =====================================================================
+        === header
+        =====================================================================
+        -->
+        <div id="includeHeader" include="Medusade-header.html">
+            <script>includeHTML('includeHeader');</script>
+        </div>
+        <!--
+        =====================================================================
+        === popdown
+        =====================================================================
+        -->
+        <div id="includePopdown" include="Medusade-popdown.html">
+            <script>includeHTML('includePopdown');</script>
+        </div>
+        <!--
+        =====================================================================
+        === dropdown
+        =====================================================================
+        -->
+        <div id="includeDropdown" include="Medusade-dropdown.html">
+            <script>includeHTML('includeDropdown');</script>
+        </div>
+        <!--
+        =====================================================================
+        === menubar
+        =====================================================================
+        -->
+        <ul class="menubar">
+            <li><a href="Medusade-create-application-home-html.html">Create Application Home</a></li>
+            <li class="home"><a href="Medusade-home.html">Home</a></li>
+            <li class="home"><a href="Medusade-tools.html">Tools</a></li>
+        </ul>
+        <!--
+        =====================================================================
+        === form
+        =====================================================================
+        -->
+        <form name="Form" method="POST" action="../templates/t/application/application-home-html.t"
+         onSubmit="return setFormSubmit(getFormValue2('FormTemplate','FormAction','Form'),getFormValue('FormMethod','Form'),'Form')">
+            <div class="form">
+
+                File: <input name="File" value=""/>
+                <input name="is_File" value="no" type="checkbox" unchecked="checked">no</input><br/>
+                Application: <input name="Application" value="Application"/>
+                <input name="is_Application" value="no" type="checkbox" unchecked="checked">no</input><br/>
+                Template: <select name="FormTemplate">
+                <option value="../templates/t/application/application-home-html.t">Create Application Home .html</option>
+                <option value="../templates/t/application/application-header-html.t">Create Application Header .html</option>
+                <option value="../templates/t/application/application-dropdown-html.t">Create Application Dropdown .html</option>
+                <option value="../templates/t/application/application-logo-html.t">Create Application Logo .html</option>
+                <option value="../templates/t/application/application-footer-html.t">Create Application Footer .html</option>
+                <option value="../templates/t/application/application-css.t" xselected="selected">Create Application .css File</option>
+                <option value="../templates/t/application/application-js.t">Create Application .js File</option>
+                <option value=""></option>
+                <option value="/medusade-cgi/cgi">cgi parameters</option>
+                <option value="/medusade-cgi/cgicatch">catch cgi parameters</option>
+                <option value=""></option>
+                <option value="/medusade-http/http">http parameters</option>
+                <option value="/medusade-http/httpcatch">catch http parameters</option>
+                <option value=""></option>
+                <option value="../templates/t/t/parameters.t">t parameters</option>
+                <option value="../templates/t/t/functions.t">t functions</option>
+                </select>
+                <input name="is_FormTemplate" value="no" type="checkbox" unchecked="checked">no</input><br/>
+
+                <br/>
+                border: <select name="Border">
+                <option value="0px">0px</option>
+                <option value="1px">1px</option>
+                </select>
+                <input name="is_Border" value="no" type="checkbox" unchecked="checked">no</input><br/>
+                color: <input name="FGColor" value="lightgray"/>
+                <input name="is_FGColor" value="no" type="checkbox" unchecked="checked">no</input>
+                color:hover <input name="FGHover" value="white"/>
+                <input name="is_FGHover" value="no" type="checkbox" unchecked="checked">no</input><br/>
+                border-color: <input name="BDColor" value="black"/>
+                <input name="is_BDColor" value="no" type="checkbox" unchecked="checked">no</input>
+                border-color:hover <input name="BDHover" value="black"/>
+                <input name="is_BDHover" value="no" type="checkbox" unchecked="checked">no</input><br/>
+                background-color: <input name="BGColor" value="gray"/>
+                <input name="is_BGColor" value="no" type="checkbox" unchecked="checked">no</input>
+                background-color:hover <input name="BGHover" value="lightgray"/>
+                <input name="is_BGHover" value="no" type="checkbox" unchecked="checked">no</input><br/>
+
+                <br/>.header <b>{</b><br/>
+                <b></b>color: <input name="HeaderFGColor" value="lightgray"/>
+                <input name="is_HeaderFGColor" value="no" type="checkbox" unchecked="checked">no</input><b>; </b>
+                <b></b>color:hover: <input name="HeaderFGHover" value="white"/>
+                <input name="is_HeaderFGHover" value="no" type="checkbox" unchecked="checked">no</input><b></b><br/>
+                <b></b>border-color: <input name="HeaderBD" value="gray"/>
+                <input name="is_HeaderBDColor" value="no" type="checkbox" unchecked="checked">no</input><b>; </b>
+                <b></b>border-color:hover: <input name="HeaderBDHover" value="lightgray"/>
+                <input name="is_HeaderBDHover" value="no" type="checkbox" unchecked="checked">no</input><b></b><br/>
+                <b></b>background-color: <input name="HeaderBGColor" value="transparent"/>
+                <input name="is_HeaderBGColor" value="no" type="checkbox" unchecked="checked">no</input><b>; </b>
+                <b></b>background-color:hover: <input name="HeaderBGHover" value="lightgray"/>
+                <input name="is_HeaderGHover" value="no" type="checkbox" unchecked="checked">no</input><b> }</b><br/>
+
+                <br/>.dropdown <b>{</b><br/>
+                <b></b>border-width: <input name="DropdownBDWidth" value="1px 3px 3px 1px"/>
+                <input name="is_DropdownBDWidth" value="no" type="checkbox" unchecked="checked">no</input><b>; </b>
+                <b></b>border-radius: <input name="DropdownBDRadius" value="5px 5px 5px 5px"/>
+                <input name="is_DropdownBDRadius" value="no" type="checkbox" unchecked="checked">no</input><b></b><br/>
+                <b></b>color: <input name="DropdownFGColor" value="black"/>
+                <input name="is_DropdownFGColor" value="no" type="checkbox" unchecked="checked">no</input><b>; </b>
+                <b></b>color:hover: <input name="DropdownFGHover" value="black"/>
+                <input name="is_DropdownFGHover" value="no" type="checkbox" unchecked="checked">no</input><b></b><br/>
+                <b></b>border-color: <input name="DropdownBDColor" value="black"/>
+                <input name="is_DropdownBDColor" value="no" type="checkbox" unchecked="checked">no</input><b>; </b>
+                <b></b>border-color:hover: <input name="DropdownBDHover" value="black"/>
+                <input name="is_DropdownBDHover" value="no" type="checkbox" unchecked="checked">no</input><b></b><br/>
+                <b></b>background-color: <input name="DropdownBGColor" value="lightgray"/>
+                <input name="is_DropdownBGColor" value="no" type="checkbox" unchecked="checked">no</input><b>; </b>
+                <b></b>background-color:hover: <input name="DropdownBGHover" value="lightgray"/>
+                <input name="is_DropdownGHover" value="no" type="checkbox" unchecked="checked">no</input><b> }</b><br/>
+
+                <br/>
+                Content-Type: <select name="content_type">
+                <option value="text/plain">text</option>
+                <option value="text/html" xselected="selected">html</option>
+                <option value="text/xml">xml</option>
+                <option value="application/json">json</option>
+                <option value="application/javascript">javascript</option>
+                <option value=""></option>
+                </select><br/>
+                Action: <select name="FormAction">
+                <option value="../templates/t/application/application-home-html.t">Create Application Home</option>
+                <option value=""></option>
+                <option value="/medusade-cgi/cgi">cgi parameters</option>
+                <option value="/medusade-cgi/cgicatch">catch cgi parameters</option>
+                <option value=""></option>
+                <option value="/medusade-http/http">http parameters</option>
+                <option value="/medusade-http/httpcatch">catch http parameters</option>
+                <option value=""></option>
+                <option value="../templates/t/t/parameters.t">t parameters</option>
+                <option value="../templates/t/t/functions.t">t functions</option>
+                </select><br/>
+                Method: <select name="FormMethod">
+                <option value="POST">POST</option>
+                <option value="GET">GET</option>
+                <option value=""></option>
+                </select><br/>
+    
+                <br/>
+                <input type="submit" name="submit" value="submit"/><br/>
+            </div>
+        </form>
+    </body>
+</html>

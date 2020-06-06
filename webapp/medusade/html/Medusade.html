@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+=====================================================================
+=== Copyright (c) 1988-2019 $organization$
+===
+=== This software is provided by the author and contributors ``as is'' 
+=== and any express or implied warranties, including, but not limited to, 
+=== the implied warranties of merchantability and fitness for a particular 
+=== purpose are disclaimed. In no event shall the author or contributors 
+=== be liable for any direct, indirect, incidental, special, exemplary, 
+=== or consequential damages (including, but not limited to, procurement 
+=== of substitute goods or services; loss of use, data, or profits; or 
+=== business interruption) however caused and on any theory of liability, 
+=== whether in contract, strict liability, or tort (including negligence 
+=== or otherwise) arising in any way out of the use of this software, 
+=== even if advised of the possibility of such damage.
+===
+===   File: Medusade.html
+===
+=== Author: $author$
+===   Date: 11/24/2019
+=====================================================================
+-->
+<html>
+    <!--
+    =====================================================================
+    === head
+    =====================================================================
+    -->
+    <head>
+        <!--
+        =====================================================================
+        === title
+        =====================================================================
+        -->
+        <title>Medusade</title>
+    
+        <!--
+        =====================================================================
+        === style
+        =====================================================================
+        -->
+        <link rel="stylesheet" type="text/css" href="../css/Medusade.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/Medusade-header.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/Medusade-logo.css"></link>
+        <style type="text/css">
+        </style>
+    
+        <!--
+        =====================================================================
+        === script
+        =====================================================================
+        -->
+        <script type="text/javascript" src="../js/Medusade.js"></script>
+        <script type="text/javascript">
+            onLocationInit('/medusade/', 'Medusade.html');
+        </script>
+    </head>
+    <!--
+    =====================================================================
+    === body
+    =====================================================================
+    -->
+    <body class="body">
+
+        <table class="body-logo-table" xborder="1"><tr><td>
+            <table class="body-logos-table" xborder="1"><tr><td colspan="2">
+                <!--
+                =====================================================================
+                === logo
+                =====================================================================
+                -->
+                <table class="body-logo" xborder="1">
+                    <tr><td>
+                        <table class="body-logo-icon" onclick="onClickLocation(event, 'Medusade-home.html')">
+                            <tr><td class="body-logo-icon-image">
+                                <table class="body-logo-label">
+                                    <tr><td class="body-logo-label-text">MEDUSA</td></tr>
+                                </table>
+                            </td></tr>
+                        </table>
+                    </td></tr>
+                </table>
+                </td></tr><tr><td>
+                <!--
+                =====================================================================
+                === logo
+                =====================================================================
+                -->
+                <table class="body-logo" xborder="1">
+                    <tr><td>
+                        <table class="body-logo-icon" onclick="onClickLocation(event, 'Euryalede-home.html')">
+                            <tr><td class="body-logo-icon-image">
+                                <table class="body-logo-label">
+                                    <tr><td class="body-logo-label-text">EURYALE</td></tr>
+                                </table>
+                            </td></tr>
+                        </table>
+                    </td></tr>
+                </table>
+                </td><td>
+                <!--
+                =====================================================================
+                === logo
+                =====================================================================
+                -->
+                <table class="body-logo" xborder="1">
+                    <tr><td>
+                        <table class="body-logo-icon" onclick="onClickLocation(event, 'Sthenode-home.html')">
+                            <tr><td class="body-logo-icon-image">
+                                <table class="body-logo-label">
+                                    <tr><td class="body-logo-label-text">STHENO</td></tr>
+                                </table>
+                            </td></tr>
+                        </table>
+                    </td></tr>
+                </table>
+            </td></tr></table>
+        </td></tr></table>
+        <!--
+        =====================================================================
+        === header
+        =====================================================================
+        -->
+        <div id="includeHeader" include="Medusade-header.html">
+            <script>includeHTML('includeHeader');</script>
+        </div>
+        <!--
+        =====================================================================
+        === popdown
+        =====================================================================
+        -->
+        <div id="includePopdown" include="Medusade-popdown.html">
+            <script>includeHTML('includePopdown');</script>
+        </div>
+        <!--
+        =====================================================================
+        === dropdown
+        =====================================================================
+        -->
+        <div id="includeDropdown" include="Medusade-dropdown.html">
+            <div id="myDropdown" class="dropdown-content">
+                <a href="Medusade-home.html" onclick="onItemClick(event,'myDropdown')">Medusade</a>
+                <a href="Euryalede-home.html" onclick="onItemClick(event,'myDropdown')">Euryalede</a>
+                <a href="Sthenode-home.html" onclick="onItemClick(event,'myDropdown')">Sthenode</a>
+                <a href="Medusade.html" onclick="onItemClick(event,'myDropdown')">Home</a>
+                <a href="/medusade/" onclick="onItemClick(event,'myDropdown')">/medusade/</a>
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,90 @@
+/*
+**********************************************************************
+** Copyright (c) 1988-2019 $organization$     
+**
+** This software is provided by the author and contributors ``as is'' 
+** and any express or implied warranties, including, but not limited to, 
+** the implied warranties of merchantability and fitness for a particular 
+** purpose are disclaimed. In no event shall the author or contributors 
+** be liable for any direct, indirect, incidental, special, exemplary, 
+** or consequential damages (including, but not limited to, procurement 
+** of substitute goods or services; loss of use, data, or profits; or 
+** business interruption) however caused and on any theory of liability, 
+** whether in contract, strict liability, or tort (including negligence 
+** or otherwise) arising in any way out of the use of this software, 
+** even if advised of the possibility of such damage.
+**
+**   File: Medusade-logo.css
+**
+** Author: $author$           
+**   Date: 11/24/2019
+**********************************************************************
+*/
+
+/*
+** .body-logo
+** ...
+*/
+.body-logo-table {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 0px 0px 0px 0px;
+    border-spacing: 0px 0px 0px 0px;
+    background-color: black;
+    position: absolute;
+    z-index: 0;
+}
+.body-logos-table {
+    width: 600px;
+    height: 550px;
+    margin: auto;
+    padding: 0px 0px 0px 0px;
+    border-spacing: 0px 0px 0px 0px;
+    background-color: black;
+    position: relative;
+    z-index: 0;
+}
+.body-logo {
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 0px;
+    border-spacing: 0px 0px 0px 0px;
+    background-color: black;
+    position: relative;
+}
+.body-logo-icon {
+    width: 300px;
+    height: 100%;
+    margin: auto;
+    padding: 0px 0px 0px 0px;
+    border-spacing: 0px 0px 0px 0px;
+    cursor: pointer;
+}
+.body-logo-icon-image { 
+    background-image: url('../images/jpeg/Medusa_Rondanini.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 300px 300px;
+    vertical-align: bottom;
+}
+.body-logo-label {
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+    border-spacing: 0px 0px 0px 0px;
+}
+.body-logo-label-text {
+    opacity: 0;
+    color: lightgray;
+    transition: .5s ease;
+    font-size: 40px;
+    font-family: Arial;
+    text-align: center;
+}
+.body-logo-icon:hover .body-logo-label-text {
+    opacity: 1;
+}
+/*
+** ...
+** .body-logo
+*/

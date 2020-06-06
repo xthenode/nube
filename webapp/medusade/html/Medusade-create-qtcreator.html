@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+=====================================================================
+=== Copyright (c) 1988-2019 $organization$
+===
+=== This software is provided by the author and contributors ``as is'' 
+=== and any express or implied warranties, including, but not limited to, 
+=== the implied warranties of merchantability and fitness for a particular 
+=== purpose are disclaimed. In no event shall the author or contributors 
+=== be liable for any direct, indirect, incidental, special, exemplary, 
+=== or consequential damages (including, but not limited to, procurement 
+=== of substitute goods or services; loss of use, data, or profits; or 
+=== business interruption) however caused and on any theory of liability, 
+=== whether in contract, strict liability, or tort (including negligence 
+=== or otherwise) arising in any way out of the use of this software, 
+=== even if advised of the possibility of such damage.
+===
+===   File: Medusade-create-qtcreator.html
+===
+=== Author: $author$
+===   Date: 11/24/2019
+=====================================================================
+-->
+<html>
+    <!--
+    =====================================================================
+    === head
+    =====================================================================
+    -->
+    <head>
+        <!--
+        =====================================================================
+        === title
+        =====================================================================
+        -->
+        <title>Medusade - Create QtCreator Project</title>
+    
+        <!--
+        =====================================================================
+        === style
+        =====================================================================
+        -->
+        <link rel="stylesheet" type="text/css" href="../css/Medusade.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/Medusade-header.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/Medusade-dropdown.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/Medusade-menubar.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/Medusade-body-logo.css"></link>
+        <style type="text/css">
+        </style>
+    
+        <!--
+        =====================================================================
+        === script
+        =====================================================================
+        -->
+        <script type="text/javascript" src="../js/Medusade.js"></script>
+        <script type="text/javascript">
+            onLocationInit('Medusade-home.html', 'Medusade-create-qtcreator.html');
+        </script>
+    </head>
+    <!--
+    =====================================================================
+    === body
+    =====================================================================
+    -->
+    <body class="body">
+
+        <!--
+        =====================================================================
+        === logo
+        =====================================================================
+        -->
+        <div id="includeLogo" include="Medusade-body-logo.html">
+            <script>includeHTML('includeLogo');</script>
+        </div>
+        <!--
+        =====================================================================
+        === header
+        =====================================================================
+        -->
+        <div id="includeHeader" include="Medusade-header.html">
+            <script>includeHTML('includeHeader');</script>
+        </div>
+        <!--
+        =====================================================================
+        === popdown
+        =====================================================================
+        -->
+        <div id="includePopdown" include="Medusade-popdown.html">
+            <script>includeHTML('includePopdown');</script>
+        </div>
+        <!--
+        =====================================================================
+        === dropdown
+        =====================================================================
+        -->
+        <div id="includeDropdown" include="Medusade-dropdown.html">
+            <script>includeHTML('includeDropdown');</script>
+        </div>
+        <!--
+        =====================================================================
+        === menubar
+        =====================================================================
+        -->
+        <ul class="menubar">
+            <li><a href="Medusade-create-qtcreator.html">Create Qtcreator Project</a></li>
+            <li><a href="Medusade-create-makefile.html">Create Makefile project</a></li>
+            <li><a href="Medusade-create-vstudio.html">Create VisualStudio Project</a></li>
+            <li><a href="Medusade-create-t.html">Create .t file</a></li>
+            <li class="home"><a href="Medusade-home.html">Home</a></li>
+        </ul>
+
+        <!--
+        =====================================================================
+        === form
+        =====================================================================
+        -->
+        <form name="Form" method="POST" action="../templates/t/QtCreator/qtcreator.t"
+         onSubmit="return setFormSubmit(getFormValue2('FormTemplate','FormAction','Form'),getFormValue('FormMethod','Form'),'Form')">
+            <div class="form">
+
+                File: <input name="Name" value=""/>[%Target%]
+                <input name="is_Name" value="no" type="checkbox" unchecked="checked">no</input><br/>
+                Template: <select name="FormTemplate">
+                <option value="../templates/t/QtCreator/qtcreator.t">QtCreator project</option>
+                <option value="../templates/t/QtCreator/os-qtcreator.t">Os QtCreator project</option>
+                <option value="../templates/t/QtCreator/build-qtcreator.t">Build QtCreator project</option>
+                <option value=""></option>
+                <option value="../templates/t/QtCreator/lib-qtcreator.t">library QtCreator project</option>
+                <option value="../templates/t/QtCreator/os-lib-qtcreator.t">Os library QtCreator project</option>
+                <option value="../templates/t/QtCreator/lib-qtcreator-build-config.t">library QtCreator build config</option>
+                <option value=""></option>
+                <option value="../templates/t/QtCreator/exe-qtcreator.t">executable QtCreator project</option>
+                <option value="../templates/t/QtCreator/os-exe-qtcreator.t">Os executable QtCreator project</option>
+                <option value="../templates/t/QtCreator/exe-qtcreator-build-config.t">executable QtCreator build config</option>
+                <option value=""></option>
+                <option value="../templates/t/QtCreator/slib-qtcreator.t">shared library QtCreator project</option>
+                <option value="../templates/t/QtCreator/os-slib-qtcreator.t">Os shared library QtCreator project</option>
+                <option value="../templates/t/QtCreator/slib-qtcreator-build-config.t">shared library QtCreator build config</option>
+                <option value=""></option>
+                <option value="../templates/t/QtCreator/kmod-qtcreator.t">kernel module QtCreator project</option>
+                <option value="../templates/t/QtCreator/os-kmod-qtcreator.t">Os kernel module QtCreator project</option>
+                <option value="../templates/t/QtCreator/kmod-qtcreator-build-config.t">kernel module QtCreator build config</option>
+                <option value=""></option>
+                <option value="/medusade-cgi/cgi">cgi parameters</option>
+                <option value="/medusade-cgi/cgicatch">catch cgi parameters</option>
+                <option value=""></option>
+                <option value="/medusade-http/http">http parameters</option>
+                <option value="/medusade-http/httpcatch">catch http parameters</option>
+                <option value=""></option>
+                <option value="../templates/t/t/parameters.t">t parameters</option>
+                <option value="../templates/t/t/functions.t">t functions</option>
+                </select>
+                <input name="is_FormTemplate" value="no" type="checkbox" unchecked="checked">no</input><br/>
+
+                <br/>
+                Depends: <input name="Depends" value=""/>[Depends]
+                <input name="is_Depends" value="no" type="checkbox" checked="checked">no</input><br/>
+                Framework: <input name="Framework" value=""/>[Framework]
+                <input name="is_Framework" value="no" type="checkbox" unchecked="checked">no</input><br/>
+                Target: <input name="Target" value=""/>[%Framework%]
+                <input name="is_Target" value="no" type="checkbox" unchecked="checked">no</input><br/>
+                Source: <select name="Source">
+                    <option value="source">source</option>
+                    <option value="src">src</option>
+                    <option value=""></option>
+                </select>[src]
+                <input name="is_Source" value="no" type="checkbox" unchecked="checked">no</input><br/>
+                Include: <select name="Include">
+                    <option value="include">include</option>
+                    <option value="inc">inc</option>
+                    <option value=""></option>
+                </select>[include]
+                <input name="is_Include" value="no" type="checkbox" unchecked="checked">no</input><br/>
+                <b></b>Os: <select name="Os">
+                <option value=""></option>
+                <option value="macosx">MacOSX</option>
+                <option value="linux">Linux</option>
+                <option value="windows">Windows</option>
+                </select>
+                <input name="is_Os" value="no" type="checkbox" unchecked="checked">no</input><b></b><br/>
+
+                <br/>
+                Content-Type: <select name="content_type">
+                <option value="text/plain">text</option>
+                <option value="text/html">html</option>
+                <option value="text/xml">xml</option>
+                <option value="application/json">json</option>
+                <option value="application/javascript">javascript</option>
+                <option value=""></option>
+                </select><br/>
+                Action: <select name="FormAction">
+                <option value="../templates/t/QtCreator/qtcreator.t">Create QtCreator Project</option>
+                <option value=""></option>
+                <option value="/medusade-cgi/cgi">cgi parameters</option>
+                <option value="/medusade-cgi/cgicatch">catch cgi parameters</option>
+                <option value=""></option>
+                <option value="/medusade-http/http">http parameters</option>
+                <option value="/medusade-http/httpcatch">catch http parameters</option>
+                <option value=""></option>
+                <option value="../templates/t/t/parameters.t">t parameters</option>
+                <option value="../templates/t/t/functions.t">t functions</option>
+                </select><br/>
+                Method: <select name="FormMethod">
+                <option value="POST">POST</option>
+                <option value="GET">GET</option>
+                <option value=""></option>
+                </select><br/>
+
+                <br/>
+                <input type="submit" name="submit" value="submit"/><br/>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,392 @@
+%########################################################################
+%# Copyright (c) 1988-2020 $organization$
+%#
+%# This software is provided by the author and contributors ``as is'' 
+%# and any express or implied warranties, including, but not limited to, 
+%# the implied warranties of merchantability and fitness for a particular 
+%# purpose are disclaimed. In no event shall the author or contributors 
+%# be liable for any direct, indirect, incidental, special, exemplary, 
+%# or consequential damages (including, but not limited to, procurement 
+%# of substitute goods or services; loss of use, data, or profits; or 
+%# business interruption) however caused and on any theory of liability, 
+%# whether in contract, strict liability, or tort (including negligence 
+%# or otherwise) arising in any way out of the use of this software, 
+%# even if advised of the possibility of such damage.
+%#
+%#   File: vstudio-console-exe-vcproj.t
+%#
+%# Author: $author$
+%#   Date: 2/13/2020
+%########################################################################
+%with(%
+%%(<VisualStudioProject
+    ProjectType="Visual C++"
+    Version="9.00"
+    Name="%Project%"
+    ProjectGUID="{%uuid()%} "
+    RootNamespace="%Project%"
+    Keyword="Win32Proj"
+    TargetFrameworkVersion="196613"
+    >
+<Platforms>
+    <Platform
+        Name="Win32"
+    />
+    <Platform
+        Name="x64"
+    />
+</Platforms>
+<ToolFiles>
+</ToolFiles>
+<Configurations>
+    <Configuration
+        Name="Debug|Win32"
+        OutputDirectory="$(%FRAMEWORK%_BIN)"
+        IntermediateDirectory="$(%FRAMEWORK%_OBJ)"
+        ConfigurationType="1"
+        InheritedPropertySheets="..\..\%Framework%.vsprops;..\vcversion.vsprops;..\..\vcproj.vsprops;"
+        CharacterSet="1"
+        >
+        <Tool
+            Name="VCPreBuildEventTool"
+        />
+        <Tool
+            Name="VCCustomBuildTool"
+        />
+        <Tool
+            Name="VCXMLDataGeneratorTool"
+        />
+        <Tool
+            Name="VCWebServiceProxyGeneratorTool"
+        />
+        <Tool
+            Name="VCMIDLTool"
+        />
+        <Tool
+            Name="VCCLCompilerTool"
+            Optimization="0"
+            AdditionalIncludeDirectories="$(%FRAMEWORK%_INCLUDE_DIRS)"
+            PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;$(%FRAMEWORK%_DEBUG_DEFINES)"
+            MinimalRebuild="true"
+            BasicRuntimeChecks="3"
+            RuntimeLibrary="1"
+            UsePrecompiledHeader="0"
+            WarningLevel="3"
+            DebugInformationFormat="4"
+        />
+        <Tool
+            Name="VCManagedResourceCompilerTool"
+        />
+        <Tool
+            Name="VCResourceCompilerTool"
+        />
+        <Tool
+            Name="VCPreLinkEventTool"
+        />
+        <Tool
+            Name="VCLinkerTool"
+            AdditionalDependencies="$(%FRAMEWORK%_LIBS)"
+            LinkIncremental="2"
+            AdditionalLibraryDirectories="$(%FRAMEWORK%_LIB_DIRS)"
+            GenerateDebugInformation="true"
+            SubSystem="1"
+            TargetMachine="1"
+        />
+        <Tool
+            Name="VCALinkTool"
+        />
+        <Tool
+            Name="VCManifestTool"
+        />
+        <Tool
+            Name="VCXDCMakeTool"
+        />
+        <Tool
+            Name="VCBscMakeTool"
+        />
+        <Tool
+            Name="VCFxCopTool"
+        />
+        <Tool
+            Name="VCAppVerifierTool"
+        />
+        <Tool
+            Name="VCPostBuildEventTool"
+        />
+    </Configuration>
+    <Configuration
+        Name="Release|Win32"
+        OutputDirectory="$(%FRAMEWORK%_BIN)"
+        IntermediateDirectory="$(%FRAMEWORK%_OBJ)"
+        ConfigurationType="1"
+        InheritedPropertySheets="..\..\%Framework%.vsprops;..\vcversion.vsprops;..\..\vcproj.vsprops;..\..\rostra.vsprops"
+        CharacterSet="1"
+        WholeProgramOptimization="1"
+        >
+        <Tool
+            Name="VCPreBuildEventTool"
+        />
+        <Tool
+            Name="VCCustomBuildTool"
+        />
+        <Tool
+            Name="VCXMLDataGeneratorTool"
+        />
+        <Tool
+            Name="VCWebServiceProxyGeneratorTool"
+        />
+        <Tool
+            Name="VCMIDLTool"
+        />
+        <Tool
+            Name="VCCLCompilerTool"
+            Optimization="2"
+            EnableIntrinsicFunctions="true"
+            AdditionalIncludeDirectories="$(%FRAMEWORK%_INCLUDE_DIRS)"
+            PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;$(%FRAMEWORK%_RELEASE_DEFINES)"
+            RuntimeLibrary="0"
+            EnableFunctionLevelLinking="true"
+            UsePrecompiledHeader="0"
+            WarningLevel="3"
+            DebugInformationFormat="3"
+        />
+        <Tool
+            Name="VCManagedResourceCompilerTool"
+        />
+        <Tool
+            Name="VCResourceCompilerTool"
+        />
+        <Tool
+            Name="VCPreLinkEventTool"
+        />
+        <Tool
+            Name="VCLinkerTool"
+            AdditionalDependencies="$(%FRAMEWORK%_LIBS)"
+            LinkIncremental="1"
+            AdditionalLibraryDirectories="$(%FRAMEWORK%_LIB_DIRS)"
+            GenerateDebugInformation="true"
+            SubSystem="1"
+            OptimizeReferences="2"
+            EnableCOMDATFolding="2"
+            TargetMachine="1"
+        />
+        <Tool
+            Name="VCALinkTool"
+        />
+        <Tool
+            Name="VCManifestTool"
+        />
+        <Tool
+            Name="VCXDCMakeTool"
+        />
+        <Tool
+            Name="VCBscMakeTool"
+        />
+        <Tool
+            Name="VCFxCopTool"
+        />
+        <Tool
+            Name="VCAppVerifierTool"
+        />
+        <Tool
+            Name="VCPostBuildEventTool"
+        />
+    </Configuration>
+    <Configuration
+        Name="Debug|x64"
+        OutputDirectory="$(%FRAMEWORK%_BIN)"
+        IntermediateDirectory="$(%FRAMEWORK%_OBJ)"
+        ConfigurationType="1"
+        InheritedPropertySheets="..\..\%Framework%.vsprops;..\vcversion.vsprops;..\..\vcproj.vsprops;..\..\rostra.vsprops"
+        CharacterSet="1"
+        >
+        <Tool
+            Name="VCPreBuildEventTool"
+        />
+        <Tool
+            Name="VCCustomBuildTool"
+        />
+        <Tool
+            Name="VCXMLDataGeneratorTool"
+        />
+        <Tool
+            Name="VCWebServiceProxyGeneratorTool"
+        />
+        <Tool
+            Name="VCMIDLTool"
+            TargetEnvironment="3"
+        />
+        <Tool
+            Name="VCCLCompilerTool"
+            Optimization="0"
+            AdditionalIncludeDirectories="$(%FRAMEWORK%_INCLUDE_DIRS)"
+            PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;$(%FRAMEWORK%_DEBUG_DEFINES)"
+            MinimalRebuild="true"
+            BasicRuntimeChecks="3"
+            RuntimeLibrary="1"
+            UsePrecompiledHeader="0"
+            WarningLevel="3"
+            DebugInformationFormat="3"
+        />
+        <Tool
+            Name="VCManagedResourceCompilerTool"
+        />
+        <Tool
+            Name="VCResourceCompilerTool"
+        />
+        <Tool
+            Name="VCPreLinkEventTool"
+        />
+        <Tool
+            Name="VCLinkerTool"
+            AdditionalDependencies="$(%FRAMEWORK%_LIBS)"
+            LinkIncremental="2"
+            AdditionalLibraryDirectories="$(%FRAMEWORK%_LIB_DIRS)"
+            GenerateDebugInformation="true"
+            SubSystem="1"
+            TargetMachine="17"
+        />
+        <Tool
+            Name="VCALinkTool"
+        />
+        <Tool
+            Name="VCManifestTool"
+        />
+        <Tool
+            Name="VCXDCMakeTool"
+        />
+        <Tool
+            Name="VCBscMakeTool"
+        />
+        <Tool
+            Name="VCFxCopTool"
+        />
+        <Tool
+            Name="VCAppVerifierTool"
+        />
+        <Tool
+            Name="VCPostBuildEventTool"
+        />
+    </Configuration>
+    <Configuration
+        Name="Release|x64"
+        OutputDirectory="$(%FRAMEWORK%_BIN)"
+        IntermediateDirectory="$(%FRAMEWORK%_OBJ)"
+        ConfigurationType="1"
+        InheritedPropertySheets="..\..\%Framework%.vsprops;..\vcversion.vsprops;..\..\vcproj.vsprops;..\..\rostra.vsprops"
+        CharacterSet="1"
+        WholeProgramOptimization="1"
+        >
+        <Tool
+            Name="VCPreBuildEventTool"
+        />
+        <Tool
+            Name="VCCustomBuildTool"
+        />
+        <Tool
+            Name="VCXMLDataGeneratorTool"
+        />
+        <Tool
+            Name="VCWebServiceProxyGeneratorTool"
+        />
+        <Tool
+            Name="VCMIDLTool"
+            TargetEnvironment="3"
+        />
+        <Tool
+            Name="VCCLCompilerTool"
+            Optimization="2"
+            EnableIntrinsicFunctions="true"
+            AdditionalIncludeDirectories="$(%FRAMEWORK%_INCLUDE_DIRS)"
+            PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;$(%FRAMEWORK%_RELEASE_DEFINES)"
+            RuntimeLibrary="0"
+            EnableFunctionLevelLinking="true"
+            UsePrecompiledHeader="0"
+            WarningLevel="3"
+            DebugInformationFormat="3"
+        />
+        <Tool
+            Name="VCManagedResourceCompilerTool"
+        />
+        <Tool
+            Name="VCResourceCompilerTool"
+        />
+        <Tool
+            Name="VCPreLinkEventTool"
+        />
+        <Tool
+            Name="VCLinkerTool"
+            AdditionalDependencies="$(%FRAMEWORK%_LIBS)"
+            LinkIncremental="1"
+            AdditionalLibraryDirectories="$(%FRAMEWORK%_LIB_DIRS)"
+            GenerateDebugInformation="true"
+            SubSystem="1"
+            OptimizeReferences="2"
+            EnableCOMDATFolding="2"
+            TargetMachine="17"
+        />
+        <Tool
+            Name="VCALinkTool"
+        />
+        <Tool
+            Name="VCManifestTool"
+        />
+        <Tool
+            Name="VCXDCMakeTool"
+        />
+        <Tool
+            Name="VCBscMakeTool"
+        />
+        <Tool
+            Name="VCFxCopTool"
+        />
+        <Tool
+            Name="VCAppVerifierTool"
+        />
+        <Tool
+            Name="VCPostBuildEventTool"
+        />
+    </Configuration>
+</Configurations>
+<References>
+</References>
+<Files>
+    <Filter
+        Name="Source Files"
+        Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+        UniqueIdentifier="{%uuid()%} "
+        >
+        <File
+            RelativePath="..\..\..\..\..\src\%Framework%\app\console\%Project%\main.cpp"
+            >
+        </File>
+        <File
+            RelativePath="..\..\..\..\..\src\%Framework%\console\main_main.cpp"
+            >
+        </File>
+    </Filter>
+    <Filter
+        Name="Header Files"
+        Filter="h;hpp;hxx;hm;inl;inc;xsd"
+        UniqueIdentifier="{%uuid()%} "
+        >
+        <File
+            RelativePath="..\..\..\..\..\src\%Framework%\app\console\%Project%\main.hpp"
+            >
+        </File>
+        <File
+            RelativePath="..\..\..\..\..\src\%Framework%\console\main_main.hpp"
+            >
+        </File>
+    </Filter>
+    <Filter
+        Name="Resource Files"
+        Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
+        UniqueIdentifier="{%uuid()%} "
+        >
+    </Filter>
+</Files>
+<Globals>
+</Globals>
+</VisualStudioProject>
+)%)%

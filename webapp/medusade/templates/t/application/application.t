@@ -1,0 +1,180 @@
+%########################################################################
+%# Copyright (c) 1988-2019 $organization$
+%#
+%# This software is provided by the author and contributors ``as is'' 
+%# and any express or implied warranties, including, but not limited to, 
+%# the implied warranties of merchantability and fitness for a particular 
+%# purpose are disclaimed. In no event shall the author or contributors 
+%# be liable for any direct, indirect, incidental, special, exemplary, 
+%# or consequential damages (including, but not limited to, procurement 
+%# of substitute goods or services; loss of use, data, or profits; or 
+%# business interruption) however caused and on any theory of liability, 
+%# whether in contract, strict liability, or tort (including negligence 
+%# or otherwise) arising in any way out of the use of this software, 
+%# even if advised of the possibility of such damage.
+%#
+%#   File: application.t
+%#
+%# Author: $author$
+%#   Date: 12/12/2019
+%########################################################################
+%with(%
+%include_path,%(%else-then(%include_path%,%(%filepath(%input%)%)%)%)%,%
+%is_html,%(%else-then(%is_html%,%(%is_Html%)%)%)%,%
+%html,%(%else-then(%if-no(%is_html%,,%(%html%)%)%,%(%if-no(%is_html%,,%(%equal(%content_type%,text/html)%)%)%)%)%)%,%
+%Html,%(%else-then(%if-no(%is_html%,,%(%Html%)%)%,%(%html%)%)%)%,%
+%HTML,%(%else-then(%HTML%,%(%toupper(%Html%)%)%)%)%,%
+%html,%(%else-then(%_Html%,%(%tolower(%Html%)%)%)%)%,%
+%is_urlprefix,%(%else-then(%is_urlprefix%,%(%is_URLPrefix%)%)%)%,%
+%urlprefix,%(%else-then(%if-no(%is_urlprefix%,,%(%urlprefix%)%)%,%(%if-no(%is_urlprefix%,,%(%if(%Html%,../../)%)%)%)%)%)%,%
+%URLPrefix,%(%else-then(%if-no(%is_urlprefix%,,%(%URLPrefix%)%)%,%(%urlprefix%)%)%)%,%
+%URLPREFIX,%(%else-then(%URLPREFIX%,%(%toupper(%URLPrefix%)%)%)%)%,%
+%urlprefix,%(%else-then(%_URLPrefix%,%(%tolower(%URLPrefix%)%)%)%)%,%
+%is_application,%(%else-then(%is_application%,%(%is_Application%)%)%)%,%
+%application,%(%else-then(%if-no(%is_application%,,%(%application%)%)%,%(%if-no(%is_application%,,%(Application)%)%)%)%)%,%
+%Application,%(%else-then(%if-no(%is_application%,,%(%Application%)%)%,%(%application%)%)%)%,%
+%APPLICATION,%(%else-then(%APPLICATION%,%(%toupper(%Application%)%)%)%)%,%
+%application,%(%else-then(%_Application%,%(%tolower(%Application%)%)%)%)%,%
+%is_name,%(%else-then(%is_name%,%(%is_Name%)%)%)%,%
+%name,%(%else-then(%if-no(%is_name%,,%(%name%)%)%,%(%if-no(%is_name%,,%(%Application%)%)%)%)%)%,%
+%Name,%(%else-then(%if-no(%is_name%,,%(%Name%)%)%,%(%name%)%)%)%,%
+%NAME,%(%else-then(%NAME%,%(%toupper(%Name%)%)%)%)%,%
+%name,%(%else-then(%_Name%,%(%tolower(%Name%)%)%)%)%,%
+%is_file,%(%else-then(%is_file%,%(%is_File%)%)%)%,%
+%file,%(%else-then(%if-no(%is_file%,,%(%file%)%)%,%(%if-no(%is_file%,,%(%Name%)%)%)%)%)%,%
+%File,%(%else-then(%if-no(%is_file%,,%(%File%)%)%,%(%file%)%)%)%,%
+%FILE,%(%else-then(%FILE%,%(%toupper(%File%)%)%)%)%,%
+%file,%(%else-then(%_File%,%(%tolower(%File%)%)%)%)%,%
+%is_fgcolor,%(%else-then(%is_fgcolor%,%(%is_FGColor%)%)%)%,%
+%fgcolor,%(%else-then(%if-no(%is_fgcolor%,,%(%fgcolor%)%)%,%(%if-no(%is_fgcolor%,,%(lightgray)%)%)%)%)%,%
+%FGColor,%(%else-then(%if-no(%is_fgcolor%,,%(%FGColor%)%)%,%(%fgcolor%)%)%)%,%
+%FGCOLOR,%(%else-then(%FGCOLOR%,%(%toupper(%FGColor%)%)%)%)%,%
+%fgcolor,%(%else-then(%_FGColor%,%(%tolower(%FGColor%)%)%)%)%,%
+%is_fghover,%(%else-then(%is_fghover%,%(%is_FGHover%)%)%)%,%
+%fghover,%(%else-then(%if-no(%is_fghover%,,%(%fghover%)%)%,%(%if-no(%is_fghover%,,%(white)%)%)%)%)%,%
+%FGHover,%(%else-then(%if-no(%is_fghover%,,%(%FGHover%)%)%,%(%fghover%)%)%)%,%
+%FGHOVER,%(%else-then(%FGHOVER%,%(%toupper(%FGHover%)%)%)%)%,%
+%fghover,%(%else-then(%_FGHover%,%(%tolower(%FGHover%)%)%)%)%,%
+%is_bdcolor,%(%else-then(%is_bdcolor%,%(%is_BDColor%)%)%)%,%
+%bdcolor,%(%else-then(%if-no(%is_bdcolor%,,%(%bdcolor%)%)%,%(%if-no(%is_bdcolor%,,%(black)%)%)%)%)%,%
+%BDColor,%(%else-then(%if-no(%is_bdcolor%,,%(%BDColor%)%)%,%(%bdcolor%)%)%)%,%
+%BDCOLOR,%(%else-then(%BDCOLOR%,%(%toupper(%BDColor%)%)%)%)%,%
+%bdcolor,%(%else-then(%_BDColor%,%(%tolower(%BDColor%)%)%)%)%,%
+%is_bdhover,%(%else-then(%is_bdhover%,%(%is_BDHover%)%)%)%,%
+%bdhover,%(%else-then(%if-no(%is_bdhover%,,%(%bdhover%)%)%,%(%if-no(%is_bdhover%,,%(brown)%)%)%)%)%,%
+%BDHover,%(%else-then(%if-no(%is_bdhover%,,%(%BDHover%)%)%,%(%bdhover%)%)%)%,%
+%BDHOVER,%(%else-then(%BDHOVER%,%(%toupper(%BDHover%)%)%)%)%,%
+%bdhover,%(%else-then(%_BDHover%,%(%tolower(%BDHover%)%)%)%)%,%
+%is_bgcolor,%(%else-then(%is_bgcolor%,%(%is_BGColor%)%)%)%,%
+%bgcolor,%(%else-then(%if-no(%is_bgcolor%,,%(%bgcolor%)%)%,%(%if-no(%is_bgcolor%,,%(gray)%)%)%)%)%,%
+%BGColor,%(%else-then(%if-no(%is_bgcolor%,,%(%BGColor%)%)%,%(%bgcolor%)%)%)%,%
+%BGCOLOR,%(%else-then(%BGCOLOR%,%(%toupper(%BGColor%)%)%)%)%,%
+%bgcolor,%(%else-then(%_BGColor%,%(%tolower(%BGColor%)%)%)%)%,%
+%is_bghover,%(%else-then(%is_bghover%,%(%is_BGHover%)%)%)%,%
+%bghover,%(%else-then(%if-no(%is_bghover%,,%(%bghover%)%)%,%(%if-no(%is_bghover%,,%(lightgray)%)%)%)%)%,%
+%BGHover,%(%else-then(%if-no(%is_bghover%,,%(%BGHover%)%)%,%(%bghover%)%)%)%,%
+%BGHOVER,%(%else-then(%BGHOVER%,%(%toupper(%BGHover%)%)%)%)%,%
+%bghover,%(%else-then(%_BGHover%,%(%tolower(%BGHover%)%)%)%)%,%
+%is_bgimage,%(%else-then(%is_bgimage%,%(%is_BGImage%)%)%)%,%
+%bgimage,%(%else-then(%if-no(%is_bgimage%,,%(%bgimage%)%)%,%(%if-no(%is_bgimage%,,%(../images/jpeg/%Application%-background.jpg)%)%)%)%)%,%
+%BGImage,%(%else-then(%if-no(%is_bgimage%,,%(%BGImage%)%)%,%(%bgimage%)%)%)%,%
+%BGIMAGE,%(%else-then(%BGIMAGE%,%(%toupper(%BGImage%)%)%)%)%,%
+%bgimage,%(%else-then(%_BGImage%,%(%tolower(%BGImage%)%)%)%)%,%
+%is_font,%(%else-then(%is_font%,%(%is_Font%)%)%)%,%
+%font,%(%else-then(%if-no(%is_font%,,%(%font%)%)%,%(%if-no(%is_font%,,%(Arial)%)%)%)%)%,%
+%Font,%(%else-then(%if-no(%is_font%,,%(%Font%)%)%,%(%font%)%)%)%,%
+%FONT,%(%else-then(%FONT%,%(%toupper(%Font%)%)%)%)%,%
+%font,%(%else-then(%_Font%,%(%tolower(%Font%)%)%)%)%,%
+%is_border,%(%else-then(%is_border%,%(%is_Border%)%)%)%,%
+%border,%(%else-then(%if-no(%is_border%,,%(%border%)%)%,%(%if-no(%is_border%,,%(0px)%)%)%)%)%,%
+%Border,%(%else-then(%if-no(%is_border%,,%(%Border%)%)%,%(%border%)%)%)%,%
+%BORDER,%(%else-then(%BORDER%,%(%toupper(%Border%)%)%)%)%,%
+%border,%(%else-then(%_Border%,%(%tolower(%Border%)%)%)%)%,%
+%is_headerbd,%(%else-then(%is_headerbd%,%(%is_HeaderBD%)%)%)%,%
+%headerbd,%(%else-then(%if-no(%is_headerbd%,,%(%headerbd%)%)%,%(%if-no(%is_headerbd%,,%(%BDColor%)%)%)%)%)%,%
+%HeaderBD,%(%else-then(%if-no(%is_headerbd%,,%(%HeaderBD%)%)%,%(%headerbd%)%)%)%,%
+%HEADERBD,%(%else-then(%HEADERBD%,%(%toupper(%HeaderBD%)%)%)%)%,%
+%headerbd,%(%else-then(%_HeaderBD%,%(%tolower(%HeaderBD%)%)%)%)%,%
+%is_headerbdcolor,%(%else-then(%is_headerbdcolor%,%(%is_HeaderBDColor%)%)%)%,%
+%headerbdcolor,%(%else-then(%if-no(%is_headerbdcolor%,,%(%headerbdcolor%)%)%,%(%if-no(%is_headerbdcolor%,,%(%HeaderBD%)%)%)%)%)%,%
+%HeaderBDColor,%(%else-then(%if-no(%is_headerbdcolor%,,%(%HeaderBDColor%)%)%,%(%headerbdcolor%)%)%)%,%
+%HEADERBDCOLOR,%(%else-then(%HEADERBDCOLOR%,%(%toupper(%HeaderBDColor%)%)%)%)%,%
+%headerbdcolor,%(%else-then(%_HeaderBDColor%,%(%tolower(%HeaderBDColor%)%)%)%)%,%
+%is_headerfgcolor,%(%else-then(%is_headerfgcolor%,%(%is_HeaderFGColor%)%)%)%,%
+%headerfgcolor,%(%else-then(%if-no(%is_headerfgcolor%,,%(%headerfgcolor%)%)%,%(%if-no(%is_headerfgcolor%,,%(%FGColor%)%)%)%)%)%,%
+%HeaderFGColor,%(%else-then(%if-no(%is_headerfgcolor%,,%(%HeaderFGColor%)%)%,%(%headerfgcolor%)%)%)%,%
+%HEADERFGCOLOR,%(%else-then(%HEADERFGCOLOR%,%(%toupper(%HeaderFGColor%)%)%)%)%,%
+%headerfgcolor,%(%else-then(%_HeaderFGColor%,%(%tolower(%HeaderFGColor%)%)%)%)%,%
+%is_headerfghover,%(%else-then(%is_headerfghover%,%(%is_HeaderFGHover%)%)%)%,%
+%headerfghover,%(%else-then(%if-no(%is_headerfghover%,,%(%headerfghover%)%)%,%(%if-no(%is_headerfghover%,,%(%FGHover%)%)%)%)%)%,%
+%HeaderFGHover,%(%else-then(%if-no(%is_headerfghover%,,%(%HeaderFGHover%)%)%,%(%headerfghover%)%)%)%,%
+%HEADERFGHOVER,%(%else-then(%HEADERFGHOVER%,%(%toupper(%HeaderFGHover%)%)%)%)%,%
+%headerfghover,%(%else-then(%_HeaderFGHover%,%(%tolower(%HeaderFGHover%)%)%)%)%,%
+%is_headerbgcolor,%(%else-then(%is_headerbgcolor%,%(%is_HeaderBGColor%)%)%)%,%
+%headerbgcolor,%(%else-then(%if-no(%is_headerbgcolor%,,%(%headerbgcolor%)%)%,%(%if-no(%is_headerbgcolor%,,%(transparent)%)%)%)%)%,%
+%HeaderBGColor,%(%else-then(%if-no(%is_headerbgcolor%,,%(%HeaderBGColor%)%)%,%(%headerbgcolor%)%)%)%,%
+%HEADERBGCOLOR,%(%else-then(%HEADERBGCOLOR%,%(%toupper(%HeaderBGColor%)%)%)%)%,%
+%headerbgcolor,%(%else-then(%_HeaderBGColor%,%(%tolower(%HeaderBGColor%)%)%)%)%,%
+%is_headerbghover,%(%else-then(%is_headerbghover%,%(%is_HeaderBGHover%)%)%)%,%
+%headerbghover,%(%else-then(%if-no(%is_headerbghover%,,%(%headerbghover%)%)%,%(%if-no(%is_headerbghover%,,%(%FGHover%)%)%)%)%)%,%
+%HeaderBGHover,%(%else-then(%if-no(%is_headerbghover%,,%(%HeaderBGHover%)%)%,%(%headerbghover%)%)%)%,%
+%HEADERBGHOVER,%(%else-then(%HEADERBGHOVER%,%(%toupper(%HeaderBGHover%)%)%)%)%,%
+%headerbghover,%(%else-then(%_HeaderBGHover%,%(%tolower(%HeaderBGHover%)%)%)%)%,%
+%is_headerlogoimage,%(%else-then(%is_headerlogoimage%,%(%is_HeaderLogoImage%)%)%)%,%
+%headerlogoimage,%(%else-then(%if-no(%is_headerlogoimage%,,%(%headerlogoimage%)%)%,%(%if-no(%is_headerlogoimage%,,%(%URLPrefix%../images/png/%Application%-header.png)%)%)%)%)%,%
+%HeaderLogoImage,%(%else-then(%if-no(%is_headerlogoimage%,,%(%HeaderLogoImage%)%)%,%(%headerlogoimage%)%)%)%,%
+%HEADERLOGOIMAGE,%(%else-then(%HEADERLOGOIMAGE%,%(%toupper(%HeaderLogoImage%)%)%)%)%,%
+%headerlogoimage,%(%else-then(%_HeaderLogoImage%,%(%tolower(%HeaderLogoImage%)%)%)%)%,%
+%is_dropdownbdwidth,%(%else-then(%is_dropdownbdwidth%,%(%is_DropdownBDWidth%)%)%)%,%
+%dropdownbdwidth,%(%else-then(%if-no(%is_dropdownbdwidth%,,%(%dropdownbdwidth%)%)%,%(%if-no(%is_dropdownbdwidth%,%(0px)%,%(1px 3px 3px 1px)%)%)%)%)%,%
+%DropdownBDWidth,%(%else-then(%if-no(%is_dropdownbdwidth%,,%(%DropdownBDWidth%)%)%,%(%dropdownbdwidth%)%)%)%,%
+%DROPDOWNBDWIDTH,%(%else-then(%DROPDOWNBDWIDTH%,%(%toupper(%DropdownBDWidth%)%)%)%)%,%
+%dropdownbdwidth,%(%else-then(%_DropdownBDWidth%,%(%tolower(%DropdownBDWidth%)%)%)%)%,%
+%is_dropdownbdradius,%(%else-then(%is_dropdownbdradius%,%(%is_DropdownBDRadius%)%)%)%,%
+%dropdownbdradius,%(%else-then(%if-no(%is_dropdownbdradius%,,%(%dropdownbdradius%)%)%,%(%if-no(%is_dropdownbdradius%,%(0px)%,%(5px 5px 5px 5px)%)%)%)%)%,%
+%DropdownBDRadius,%(%else-then(%if-no(%is_dropdownbdradius%,,%(%DropdownBDRadius%)%)%,%(%dropdownbdradius%)%)%)%,%
+%DROPDOWNBDRADIUS,%(%else-then(%DROPDOWNBDRADIUS%,%(%toupper(%DropdownBDRadius%)%)%)%)%,%
+%dropdownbdradius,%(%else-then(%_DropdownBDRadius%,%(%tolower(%DropdownBDRadius%)%)%)%)%,%
+%is_footerlogoimage,%(%else-then(%is_footerlogoimage%,%(%is_FooterLogoImage%)%)%)%,%
+%footerlogoimage,%(%else-then(%if-no(%is_footerlogoimage%,,%(%footerlogoimage%)%)%,%(%if-no(%is_footerlogoimage%,,%(%URLPrefix%../images/png/%Application%-footer.png)%)%)%)%)%,%
+%FooterLogoImage,%(%else-then(%if-no(%is_footerlogoimage%,,%(%FooterLogoImage%)%)%,%(%footerlogoimage%)%)%)%,%
+%FOOTERLOGOIMAGE,%(%else-then(%FOOTERLOGOIMAGE%,%(%toupper(%FooterLogoImage%)%)%)%)%,%
+%footerlogoimage,%(%else-then(%_FooterLogoImage%,%(%tolower(%FooterLogoImage%)%)%)%)%,%
+%is_bodybd,%(%else-then(%is_bodybd%,%(%is_BodyBD%)%)%)%,%
+%bodybd,%(%else-then(%if-no(%is_bodybd%,,%(%bodybd%)%)%,%(%if-no(%is_bodybd%,,%(%BDColor%)%)%)%)%)%,%
+%BodyBD,%(%else-then(%if-no(%is_bodybd%,,%(%BodyBD%)%)%,%(%bodybd%)%)%)%,%
+%BODYBD,%(%else-then(%BODYBD%,%(%toupper(%BodyBD%)%)%)%)%,%
+%bodybd,%(%else-then(%_BodyBD%,%(%tolower(%BodyBD%)%)%)%)%,%
+%is_bodybdcolor,%(%else-then(%is_bodybdcolor%,%(%is_BodyBDColor%)%)%)%,%
+%bodybdcolor,%(%else-then(%if-no(%is_bodybdcolor%,,%(%bodybdcolor%)%)%,%(%if-no(%is_bodybdcolor%,,%(%BodyBD%)%)%)%)%)%,%
+%BodyBDColor,%(%else-then(%if-no(%is_bodybdcolor%,,%(%BodyBDColor%)%)%,%(%bodybdcolor%)%)%)%,%
+%BODYBDCOLOR,%(%else-then(%BODYBDCOLOR%,%(%toupper(%BodyBDColor%)%)%)%)%,%
+%bodybdcolor,%(%else-then(%_BodyBDColor%,%(%tolower(%BodyBDColor%)%)%)%)%,%
+%is_bodybg,%(%else-then(%is_bodybg%,%(%is_BodyBG%)%)%)%,%
+%bodybg,%(%else-then(%if-no(%is_bodybg%,,%(%bodybg%)%)%,%(%if-no(%is_bodybg%,,%(%BGColor%)%)%)%)%)%,%
+%BodyBG,%(%else-then(%if-no(%is_bodybg%,,%(%BodyBG%)%)%,%(%bodybg%)%)%)%,%
+%BODYBG,%(%else-then(%BODYBG%,%(%toupper(%BodyBG%)%)%)%)%,%
+%bodybg,%(%else-then(%_BodyBG%,%(%tolower(%BodyBG%)%)%)%)%,%
+%is_bodybgcolor,%(%else-then(%is_bodybgcolor%,%(%is_BodyBGColor%)%)%)%,%
+%bodybgcolor,%(%else-then(%if-no(%is_bodybgcolor%,,%(%bodybgcolor%)%)%,%(%if-no(%is_bodybgcolor%,,%(%BodyBG%)%)%)%)%)%,%
+%BodyBGColor,%(%else-then(%if-no(%is_bodybgcolor%,,%(%BodyBGColor%)%)%,%(%bodybgcolor%)%)%)%,%
+%BODYBGCOLOR,%(%else-then(%BODYBGCOLOR%,%(%toupper(%BodyBGColor%)%)%)%)%,%
+%bodybgcolor,%(%else-then(%_BodyBGColor%,%(%tolower(%BodyBGColor%)%)%)%)%,%
+%is_bodylogoimage,%(%else-then(%is_bodylogoimage%,%(%is_BodyLogoImage%)%)%)%,%
+%bodylogoimage,%(%else-then(%if-no(%is_bodylogoimage%,,%(%bodylogoimage%)%)%,%(%if-no(%is_bodylogoimage%,,%(%URLPrefix%../images/png/%Application%-body.png)%)%)%)%)%,%
+%BodyLogoImage,%(%else-then(%if-no(%is_bodylogoimage%,,%(%BodyLogoImage%)%)%,%(%bodylogoimage%)%)%)%,%
+%BODYLOGOIMAGE,%(%else-then(%BODYLOGOIMAGE%,%(%toupper(%BodyLogoImage%)%)%)%)%,%
+%bodylogoimage,%(%else-then(%_BodyLogoImage%,%(%tolower(%BodyLogoImage%)%)%)%)%,%
+%is_bodyfg,%(%else-then(%is_bodyfg%,%(%is_BodyFG%)%)%)%,%
+%bodyfg,%(%else-then(%if-no(%is_bodyfg%,,%(%bodyfg%)%)%,%(%if-no(%is_bodyfg%,,%(%FGColor%)%)%)%)%)%,%
+%BodyFG,%(%else-then(%if-no(%is_bodyfg%,,%(%BodyFG%)%)%,%(%bodyfg%)%)%)%,%
+%BODYFG,%(%else-then(%BODYFG%,%(%toupper(%BodyFG%)%)%)%)%,%
+%bodyfg,%(%else-then(%_BodyFG%,%(%tolower(%BodyFG%)%)%)%)%,%
+%is_bodyfgcolor,%(%else-then(%is_bodyfgcolor%,%(%is_BodyFGColor%)%)%)%,%
+%bodyfgcolor,%(%else-then(%if-no(%is_bodyfgcolor%,,%(%bodyfgcolor%)%)%,%(%if-no(%is_bodyfgcolor%,,%(%BodyFG%)%)%)%)%)%,%
+%BodyFGColor,%(%else-then(%if-no(%is_bodyfgcolor%,,%(%BodyFGColor%)%)%,%(%bodyfgcolor%)%)%)%,%
+%BODYFGCOLOR,%(%else-then(%BODYFGCOLOR%,%(%toupper(%BodyFGColor%)%)%)%)%,%
+%bodyfgcolor,%(%else-then(%_BodyFGColor%,%(%tolower(%BodyFGColor%)%)%)%)%,%
+%%(%
+%%include(%include_path%/../%Prefix%/application-%Suffix%.t)%%
+%)%)%

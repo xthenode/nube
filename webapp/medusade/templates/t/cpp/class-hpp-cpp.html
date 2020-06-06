@@ -1,0 +1,117 @@
+<!--========================================================================-->
+<!-- Copyright (c) 1988-2018 $organization$                                 -->
+<!--                                                                        -->
+<!-- This software is provided by the author and contributors ``as is''     -->
+<!-- and any express or implied warranties, including, but not limited to,  -->
+<!-- the implied warranties of merchantability and fitness for a particular -->
+<!-- purpose are disclaimed. In no event shall the author or contributors   -->
+<!-- be liable for any direct, indirect, incidental, special, exemplary,    -->
+<!-- or consequential damages (including, but not limited to, procurement   -->
+<!-- of substitute goods or services; loss of use, data, or profits; or     -->
+<!-- business interruption) however caused and on any theory of liability,  -->
+<!-- whether in contract, strict liability, or tort (including negligence   -->
+<!-- or otherwise) arising in any way out of the use of this software,      -->
+<!-- even if advised of the possibility of such damage.                     -->
+<!--                                                                        -->
+<!--   File: class-hpp-cpp.html                                             -->
+<!--                                                                        -->
+<!-- Author: $author$                                                       -->
+<!--   Date: 2/2/2018                                                       -->
+<!--========================================================================-->
+<html>
+    <!--========================================================================-->
+    <!-- head                                                                   -->
+    <!--========================================================================-->
+    <head>
+        <title>Create C++ Class</title>
+        <!--========================================================================-->
+        <!-- style                                                                  -->
+        <!--========================================================================-->
+        <style
+         type="text/css">
+        </style>
+        <!--========================================================================-->
+        <!-- script                                                                 -->
+        <!--========================================================================-->
+        <script language="javaScript" src="../../t/js/html-form-js.t"></script>
+        <script
+         language="JavaScript"
+         type="text/JavaScript">
+        </script>
+    </head>
+    <!--========================================================================-->
+    <!-- body                                                                   -->
+    <!--========================================================================-->
+    <body>
+        <h3><a href="class-hpp-cpp.html">Create C++ Class</a></h3>
+        <hr>
+        <!--========================================================================-->
+        <!-- form                                                                   -->
+        <!--========================================================================-->
+        <form
+         Action="class-hpp-cpp.t"
+         Method="POST"
+         Name="Form"
+         onSubmit="return setFormSubmit(getFormValue2('Template','FormAction','Form'),getFormValue('FormMethod','Form'),'Form')">
+            File: <input name="file" value=""/>[%Name%]
+            <input type="radio" name="extension" value="hpp" checked="checked">.hpp</input>
+            <input type="radio" name="extension" value="cpp">.cpp</input>
+            <input type="radio" name="extension" value="hxx">.hxx</input>
+            <input type="radio" name="extension" value="cxx">.cxx</input>
+            <input type="radio" name="extension" value="hh">.hh</input>
+            <input type="radio" name="extension" value="cc">.c</input>
+            <input type="radio" name="extension" value="mm">.mm</input>
+            <input type="radio" name="extension" value="h">.h</input>
+            <input type="radio" name="extension" value="c">.c</input>
+            <input type="radio" name="extension" value="m">.m</input>
+            <br/>
+            Template: <select name="Template">
+            <option value="class-hpp-cpp.t">C++ class</option>
+            <option value="implement-class-hpp-cpp.t">C++ implement class</option>
+            <option value="hpp-cpp.t">C/C++</option>
+            <option value="objc-hh-mm.t">Objective C/C++</option>
+            <option value=""/>
+            <option value="/xde-cgi/cgi">CGI parameters</option>
+            </select><br/>
+            <br/>
+
+            <b>#ifndef </b><input name="ifndef_directory" value="xos/base"/><b></b>[xos]
+            <input type="checkbox" name="is_ifndef" value="no" unchecked=""/>no<br/>
+            <b>#include "</b><input name="include" value="xos/base/base.hpp"/><b>"</b>[xos/base/base.hpp]
+            <input type="checkbox" name="is_include" value="no" unchecked=""/>no<br/>
+            <b>#include &lt;</b><input name="sys_include" value=""/><b>&gt;</b><br/>
+            <br/>
+
+            <b>namespace</b> <input name="namespace" value="xos"/>[xos] <b>{</b>
+            <input type="checkbox" name="is_namespace" value="no" unchecked=""/>no<br/>
+            <br/>
+            
+            <b>class</b> <input name="name" value=""/>[name]
+            <input type="checkbox" name="is_name" value="no" unchecked=""/>no<br/>
+            <b>: virtual public</b> <input name="implements" value=""/>[%Name%_implements]
+            <input type="checkbox" name="is_implements" value="no" unchecked=""/>no<br/>
+            <b>, public</b> <input name="extends" value=""/>[%Name%_extends]
+            <input type="checkbox" name="is_extends" value="no" unchecked=""/>no<br>
+            <b>{}</b>;<br/>
+            <br/>
+
+            <b>}</b> // namespace<br/>
+            <br/>
+
+            Action: <input name="FormAction" value="class-hpp-cpp.t"/><br/>
+            Method: <input name="FormMethod" value="POST"/><br/>
+            onSublit: <input name="onSublit" value="return setFormSubmit(getFormValue('%Name%Action','%Name%'),getFormValue('%Name%Method','%Name%'),'%Name%')"/><br/>
+            <br/><input type="submit" name="submit" value="submit"/><br/>
+            <hr/>
+            <table><tr>
+            <td><a href="../QtCreator/framework-qtcreator.html">
+            <b>Create Framework QtCreator Project</b></a></td>
+            <td width="20"/>
+            <td><a href="../Makefile/framework-Gcc-Makefile.html">
+            <b>Create Framework Gcc Makefile<b></a></td>
+            <td width="20"/>
+            <td><a href="../../../../../.."><b>/medusade/</b></a></td>
+            </tr></table>
+        </form>
+    </body>
+</html>
